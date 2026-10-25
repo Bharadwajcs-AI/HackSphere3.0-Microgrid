@@ -1,0 +1,128 @@
+.control-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: var(--transition);
+}
+
+.control-card:hover {
+  border-color: var(--border-light);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-wrapper {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-green {
+  background: var(--accent-green-dim);
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green-border);
+}
+
+.icon-neutral {
+  background: #1e2433;
+  color: #94a3b8;
+  border: 1px solid var(--border-light);
+}
+
+.card-top h4 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.card-desc {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Primary Action: Green ───────────────────────────────────────── */
+.btn-primary {
+  background: var(--accent-green);
+  color: #041f14;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #34d399;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.35);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Secondary Action: Dark Charcoal Neutral ─────────────────────── */
+.btn-secondary {
+  background: #191f2c;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #232b3d;
+  border-color: #475569;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-spinner {
+  animation: spin 1s linear infinite;
+}
+
+.card-footer-info {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.status-note {
+  font-family: var(--font-mono);
+}
+
+.green-note {
+  color: var(--accent-green);
+  font-weight: 600;
+}

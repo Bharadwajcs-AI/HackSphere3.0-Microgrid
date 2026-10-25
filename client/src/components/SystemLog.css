@@ -1,0 +1,270 @@
+.system-log-card {
+  background: var(--bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.log-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.log-status-dot-frame {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.log-status-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.terminal-icon {
+  color: #10b981;
+}
+
+.log-title {
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-warm-white);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.log-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-muted-grey);
+}
+
+.log-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.log-filter-pills {
+  display: flex;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.pill-btn {
+  background: transparent;
+  color: var(--color-muted-grey);
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: none;
+  transition: all 0.15s ease;
+}
+
+.pill-btn:hover {
+  color: var(--color-warm-white);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.pill-btn.active {
+  background: rgba(255, 255, 255, 0.09);
+  color: #ffffff;
+}
+
+.pill-btn.alert-pill.active {
+  background: rgba(163, 28, 24, 0.25);
+  color: #ff6b6b;
+}
+
+.pill-btn.success-pill.active {
+  background: rgba(16, 185, 129, 0.18);
+  color: #34d399;
+}
+
+.clear-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-muted-grey);
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.clear-btn:hover {
+  color: var(--color-crimson);
+  border-color: rgba(163, 28, 24, 0.4);
+  background: rgba(163, 28, 24, 0.1);
+}
+
+/* ── Console Viewport & Entries ───────────────────────────────────── */
+.log-terminal-viewport {
+  background: #090b0e;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-sm);
+  max-height: 220px;
+  min-height: 140px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.log-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 16px;
+  color: #64748b;
+  text-align: center;
+  gap: 8px;
+}
+
+.log-empty p {
+  font-size: 0.78rem;
+  margin: 0;
+}
+
+.log-entries-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.log-entry-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 8px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  line-height: 1.6;
+  transition: background 0.12s ease;
+}
+
+.log-entry-row:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.log-meta-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.log-timestamp-pill {
+  color: #71717a;
+  font-size: 0.72rem;
+  padding: 1px 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+
+.log-level-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+
+.badge-success {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-error {
+  background: rgba(163, 28, 24, 0.2);
+  color: #ff6b6b;
+  border: 1px solid rgba(163, 28, 24, 0.45);
+}
+
+.badge-info {
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.log-message-content {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.log-text {
+  color: #e2e8f0;
+}
+
+.log-lvl-error .log-text {
+  color: #fecaca;
+  font-weight: 600;
+}
+
+.log-lvl-success .log-text {
+  color: #d1fae5;
+}
+
+/* ── Terminal Status Bar Footer ───────────────────────────────────── */
+.log-terminal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: #52525b;
+}
+
+.term-indicator {
+  letter-spacing: 0.05em;
+}
