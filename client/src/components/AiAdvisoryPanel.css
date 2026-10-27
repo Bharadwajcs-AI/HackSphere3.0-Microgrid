@@ -103,7 +103,8 @@
   gap: 10px;
 }
 
-.btn-copy {
+.btn-copy,
+.btn-pdf {
   display: inline-flex;
   align-items: center;
   gap: 6px;

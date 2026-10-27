@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { BrainCircuit, Sparkles, Loader2, CheckCircle2, AlertTriangle, ShieldCheck, Cpu, Copy, Check, ArrowRight } from 'lucide-react'
+import { BrainCircuit, Sparkles, Loader2, CheckCircle2, AlertTriangle, ShieldCheck, Cpu, Copy, Check, ArrowRight, Download } from 'lucide-react'
 import { postAiAdvisory, getDemoForecast } from '../services/api'
+import { exportAdvisoryPDF } from '../utils/pdfExport'
 import './AiAdvisoryPanel.css'
 
 export default function AiAdvisoryPanel({ forecast, setForecast, addLog }) {
@@ -64,6 +65,16 @@ export default function AiAdvisoryPanel({ forecast, setForecast, addLog }) {
     addLog?.('info', 'AI Advisory copied to clipboard.')
   }
 
+  const handleDownloadPDF = () => {
+    if (!advisory) return
+    try {
+      exportAdvisoryPDF({ advisory, summary, meta })
+      addLog?.('success', 'AI Strategic Advisory PDF report downloaded.')
+    } catch (e) {
+      addLog?.('error', `Failed to export PDF: ${e.message}`)
+    }
+  }
+
   return (
     <div className="ai-advisory-view">
       {/* Intro Header */}
@@ -101,9 +112,19 @@ export default function AiAdvisoryPanel({ forecast, setForecast, addLog }) {
 
               <div className="advisory-actions">
                 {advisory && (
-                  <button type="button" className="btn-secondary btn-copy" onClick={handleCopy}>
-                    {copied ? <><Check size={14} /> Copied</> : <><Copy size={14} /> Copy Text</>}
-                  </button>
+                  <>
+                    <button type="button" className="btn-secondary btn-copy" onClick={handleCopy}>
+                      {copied ? <><Check size={14} /> Copied</> : <><Copy size={14} /> Copy Text</>}
+                    </button>
+                    <button
+                      type="button"
+                      className="btn-secondary btn-pdf"
+                      onClick={handleDownloadPDF}
+                      title="Download formatted AI Advisory PDF report"
+                    >
+                      <Download size={14} /> Download PDF
+                    </button>
+                  </>
                 )}
                 <button
                   type="button"
