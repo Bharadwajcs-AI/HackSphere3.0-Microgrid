@@ -353,6 +353,16 @@ export default function App() {
                   Independently triggered whenever demand reaches or exceeds <strong>200.0 kW</strong>. Emits high-priority alarms to grid operators regardless of active mode.
                 </p>
               </div>
+
+              <div className="rule-card">
+                <div className="rule-badge" style={{ borderColor: 'rgba(245, 158, 11, 0.4)', color: '#f59e0b' }}>
+                  <ShieldCheck size={14} /> RULE 4: RESERVE FLOOR LOCK
+                </div>
+                <h4>Emergency Cell Protection</h4>
+                <p>
+                  Automatic cutoff engaged at <strong>10.0% SOC (50 kWh reserve floor)</strong>. Battery discharge is immediately suspended to preserve lithium health, routing demand safely to Main Grid.
+                </p>
+              </div>
             </div>
           </div>
         )}

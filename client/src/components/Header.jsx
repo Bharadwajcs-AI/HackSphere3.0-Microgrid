@@ -62,9 +62,9 @@ export default function Header({ activeTab, onTabChange, onTriggerForecast, load
 
         {/* Global Right Actions & Telemetry Status */}
         <div className="header-meta">
-          <div className="telemetry-status" title="Zoho Catalyst QuickML Pipeline Status">
+          <div className="telemetry-status" title="Zoho Catalyst QuickML Pipeline & Automatic Controller Active">
             <span className="telemetry-indicator" />
-            <span className="telemetry-label">SYSTEM READY</span>
+            <span className="telemetry-label">QUICKML ACTIVE</span>
           </div>
 
           <div className="telemetry-time" title="System Local Clock">
